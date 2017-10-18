@@ -54,3 +54,25 @@ function showApplyWithArgs() {
 
     console.log ('The total is: %d', total);
 }
+
+
+(function showClosure() {
+    console.log("=> showClosure");
+
+    function sum(x, y) {
+        function sumNumbers(... numbers) {
+            let total = 0;
+
+            for (let i=0; i<numbers.length; i++) {
+                total += numbers[i];
+            }
+
+            return total;
+        }
+
+        let total = sumNumbers(x, y);
+        console.log('The total is: ' + total);
+    }
+
+    sum(4,5);
+})();

@@ -99,3 +99,4 @@ es6/lib
 
 
 # End of https://www.gitignore.io/api/node,angular
+es6/*/*/lib/*
