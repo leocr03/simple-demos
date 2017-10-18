@@ -37,9 +37,9 @@ function showCallWithArgs() {
     }
 
     let numbers = { x: 5, y: 8 };
-    
+
     let total = sum.call(numbers, 2, 7);
-    
+
     console.log ('The total is: %d', total);
 }
 
@@ -49,8 +49,8 @@ function showApplyWithArgs() {
     }
 
     let numbers = { x: 5, y: 8 };
-    
+
     let total = sum.apply(numbers, [12, 57]);
-    
+
     console.log ('The total is: %d', total);
 }
