@@ -76,3 +76,55 @@ function showApplyWithArgs() {
 
     sum(4,5);
 })();
+
+var name = this;
+
+(function showGlobalScope() {
+    console.log("=> showGlobalScope");
+    console.log(name);
+})();
+
+(function showObjectScope() {
+    console.log("=> showObjectScope");
+
+    let someObject = {
+        global: this,
+        name: 'someObject',
+        func: function() {
+            return this.name;
+        }
+    };
+
+    console.log(someObject.func());
+})();
+
+(function showNestedObjectScope() {
+    console.log("=> showNestedObjectScope");
+
+    let someObject = {
+        name: 'someObject',
+        nested: {
+            name: 'someNestedObject',
+            func: function() {
+                return this.name;
+            }
+        }
+    };
+
+    console.log(someObject.nested.func());
+})();
+
+(function showBind() {
+    console.log("=> showBind");
+    var person = {
+        name: 'Leonardo',
+        say: function(name) {
+            console.log(`Hello ${name}! I'm ${this.name}!`);
+        }
+    }
+    var person2 = {
+        name: 'Daniela'
+    }
+    var say = person.say.bind(person2);
+    say('Mary');
+})();
